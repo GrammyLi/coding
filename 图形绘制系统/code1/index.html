@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>code1</title>
+    <style>
+      canvas {
+        outline: 1px dashed lightskyblue;
+      }
+    </style>
+    <!-- 引入所有用到的文件 -->
+    <script src="./g_utils.js"></script>
+    <script src="./g_object.js"></script>
+    <script src="./g_point.js"></script>
+    <script src="./g_size.js"></script>
+    <script src="./g_color.js"></script>
+    <script src="./g_canvas.js"></script>
+  </head>
+  <body>
+    <canvas id="id-canvas" width="400" height="300"></canvas>
+    <script>
+      // 函数名应该用 const 修饰, 这样不会被意外修改
+      const __main = function () {
+        let canvas = GCanvas.new("#id-canvas");
+        // 这是一个测试函数, 给你看原理的, 只是看看
+        // canvas.__debug_draw_demo()
+        // 画一条线
+        let p1 = GPoint.new(0, 0);
+        let p2 = GPoint.new(255, 128);
+        let p3 = GPoint.new(0, 255);
+        let p4 = GPoint.new(255, 0);
+        let p5 = GPoint.new(255, 255);
+        let upperLeft = GPoint.new(0, 0);
+        let size = GSize.new(30, 50);
+        canvas.drawLine(p1, p2, GColor.black());
+
+        canvas.drawLineDDA(p2, p4, GColor.black());
+        canvas.drawLineMidpoint(p1, p4, GColor.red());
+        // 画一个矩形
+        var fillColor = GColor.new(0, 255, 0, 255);
+        canvas.drawRect(upperLeft, size, fillColor, GColor.black());
+        // 渲染出来, 不调用这个函数就不会显示结果
+        canvas.render();
+      };
+
+      __main();
+    </script>
+  </body>
+</html>
