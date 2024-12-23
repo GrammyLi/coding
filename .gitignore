@@ -1,2 +1,12 @@
 .DS_Store
 node_modules
+# 忽略所有__pycache__目录
+**/__pycache__/
+
+# 忽略pytest_cache目录及其内容
+.pytest_cache/
+.idea/
+# 以下是一些可能的其他忽略规则示例，你可以根据实际情况调整
+# 忽略node_modules目录（如果项目中有JavaScript相关内容）
+node_modules/
+# 忽略.DS_Store文件（如果是在Mac系统下开发）
