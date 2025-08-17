@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "espree": "9.3.2"
+  },
+  "scripts": {
+    "start": "node rollup.js"
+  }
+}
